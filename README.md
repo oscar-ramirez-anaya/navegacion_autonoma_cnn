@@ -310,7 +310,9 @@ Al finalizar la simulacion se imprime un **resumen del recorrido** con todas las
 
 ### 8.1 Modelo CNN
 
-El modelo entrenado con GTSRB alcanza una exactitud **superior al 90%** en el conjunto de prueba oficial (objetivo de la actividad). La matriz de confusion (Seccion 5.4) muestra que la mayoria de los errores ocurren entre clases visualmente similares (p.ej. distintos limites de velocidad), lo cual es esperado.
+El modelo entrenado con GTSRB alcanza una exactitud de **98.00%** en el conjunto de prueba oficial (12,630 imagenes), superando con holgura el objetivo del 90%. Durante el entrenamiento (25 epocas, 39,209 imagenes) la exactitud de validacion llego a **99.89%**. La conversion a TensorFlow Lite conservo el desempeno con una **paridad del 100%** respecto al modelo Keras en las muestras de verificacion.
+
+La matriz de confusion (Seccion 5.4) muestra que la mayoria de los errores ocurren entre clases visualmente similares (p.ej. distintos limites de velocidad o senales de precaucion), lo cual es esperado. El modelo cuenta con 666,699 parametros (2.54 MB), resultando en un `.tflite` de apenas 665 KB, ideal para inferencia ligera en el controlador.
 
 ### 8.2 Simulacion en Webots
 
