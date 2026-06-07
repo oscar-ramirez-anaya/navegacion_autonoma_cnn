@@ -1,0 +1,10 @@
+# Dependencias del controlador de Webots (entorno Python 3.13 del simulador)
+# El controlador solo necesita inferencia ligera, no TensorFlow completo.
+numpy>=1.24.0
+opencv-python>=4.8.0
+
+# Runtime de inferencia TFLite (instalar UNA de estas opciones):
+#   Opcion A (recomendada, ligera):
+#       pip install ai-edge-litert        # provee tflite_runtime / LiteRT
+#   Opcion B (fallback si A no instala en Python 3.13/macOS):
+#       pip install tensorflow            # el controlador usa tensorflow.lite

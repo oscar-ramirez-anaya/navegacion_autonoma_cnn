@@ -1,0 +1,43 @@
+# Runtime config de Webots (contiene rutas locales de cada maquina)
+controllers/*/runtime.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.ipynb_checkpoints/
+
+# Entorno virtual
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Proyecto de Webots (estado local de la ventana)
+worlds/.*.wbproj
+
+# Dataset GTSRB (se descarga aparte en Colab/Kaggle, ~300 MB)
+cnn_training/GTSRB/
+cnn_training/Train/
+cnn_training/Test/
+cnn_training/Meta/
+cnn_training/*.zip
+cnn_training/*.csv
+
+# Recortes de senales capturados en simulacion para el fine-tuning
+cnn_training/webots_signs/raw/
