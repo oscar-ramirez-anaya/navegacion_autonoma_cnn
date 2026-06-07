@@ -325,6 +325,31 @@ El controlador integrado demuestra:
 - **Clasificacion:** la CNN (via TFLite) clasifica cada senal y muestra su etiqueta sobre la pantalla de a bordo.
 - **Cobertura:** se detectan **al menos 8 de las 16 senales** del mundo (meta cumplida), con el resumen final confirmando las clases distintas reconocidas.
 
+### 8.3 Ubicacion de las senales en el mundo (mapa y ruta)
+
+Las 16 senales estan distribuidas por toda la ciudad. El vehiculo aparece (spawn) en `(x=105, y=-11)`; la siguiente tabla lista cada senal ordenada por distancia al spawn, para planear el recorrido manual. La **CautionSign mas cercana esta a solo ~26 m** y el primer **SpeedLimit a ~43 m**, por lo que conviene iniciar el recorrido hacia esa zona (x decreciente, y negativa) y despues subir hacia el norte (y positiva), donde se concentra un grupo de **Stop, Order y Yield** alrededor de `y≈34-66`.
+
+| Dist. | Senal (textura) | Coord (x, y) | Clase GTSRB / etiqueta |
+|------:|-----------------|--------------|------------------------|
+| 26 m  | CautionSign (cross_roads) | (84.0, -26.8) | 11 — Preferencia en cruce |
+| 43 m  | SpeedLimitSign (speed_limit_65) | (87.2, -50.3) | 3 — Limite 60 |
+| 74 m  | CautionSign (bump) | (33.8, 10.6) | 22 — Camino con baches |
+| 78 m  | SpeedLimitSign (one_way_left) | (31.0, -34.4) | 39 — Mantener izquierda |
+| 108 m | SpeedLimitSign (speed_limit_55) | (26.5, -84.3) | 2 — Limite 50 |
+| 113 m | CautionSign (turn_right) | (-5.4, -34.1) | 20 — Curva a la derecha |
+| 117 m | CautionSign (default) | (8.9, 55.5) | 18 — Precaucion general |
+| 145 m | OrderSign (no_pedestrian) | (5.2, 94.5) | 27 — Peatones |
+| 147 m | StopSign | (-34.6, 34.3) | 14 — Alto |
+| 157 m | OrderSign (default) | (-45.1, 34.7) | 35 — Solo de frente |
+| 163 m | SpeedLimitSign (speed_limit_65) | (-30.3, 79.1) | 3 — Limite 60 |
+| 167 m | OrderSign (default) | (-55.4, 34.2) | 38 — Mantener derecha |
+| 178 m | YieldSign | (-55.5, 66.5) | 13 — Ceda el paso |
+| 179 m | OrderSign (no_right_turn) | (-67.7, 34.5) | 9 — Prohibido rebasar |
+| 206 m | CautionSign (turn_left) | (-91.9, 48.9) | 19 — Curva a la izquierda |
+| 221 m | SpeedLimitSign (speed_limit_55) | (-113.2, 20.4) | 2 — Limite 50 |
+
+> Si prefieres iniciar pegado a un grupo de senales, puede reubicarse el spawn del `BmwX5` en el campo `translation` del mundo, manteniendolo sobre el carril derecho. La posicion exacta se ajusta visualmente en Webots (el auto trae GPS para confirmar coordenadas).
+
 ---
 
 ## 9. Conclusiones
